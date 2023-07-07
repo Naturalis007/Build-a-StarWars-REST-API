@@ -71,6 +71,20 @@ def users_favorites():
     })
 
 
+@app.route("/people/<int:planet_id>", methods=["GET"])
+def get_people(id):
+    return jsonify({
+        "mensaje": "esta es la informacion del personaje con id"+str(id)
+    })
+
+@app.route("/planets/<int:planet_id>", methods=["GET"])
+def get_planets(id):
+    return jsonify({
+        "mensaje": "esta es la informacion del planeta con id"+str(id)
+    })
+
+
+
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))
