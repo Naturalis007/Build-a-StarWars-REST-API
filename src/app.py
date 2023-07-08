@@ -39,6 +39,9 @@ def sitemap():
 @app.route('/user', methods=['GET'])
 def handle_hello():
 
+    all_user = User.query.all()
+    
+
     response_body = {
         "msg": "Hello, this is your GET /user response "
     }
