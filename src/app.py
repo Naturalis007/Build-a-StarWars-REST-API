@@ -53,6 +53,10 @@ def handle_hello():
 
 @app.route("/people", methods=["GET"])
 def people_sw():
+
+    all_people = People.query.all()
+    all_people = list(map(lambda people: people.serialize(), all_people))
+    return jsonify(all_people), 200
     return jsonify({
         "mensaje": "aca deben estar todos los personajes de sw"
     })
