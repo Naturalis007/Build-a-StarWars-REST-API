@@ -52,10 +52,22 @@ def people_sw():
         "mensaje": "aca deben estar todos los personajes de sw"
     })
 
+@app.route("/people/<int:people_id>", methods=["GET"])
+def get_people(id):
+    return jsonify({
+        "mensaje": "esta es la informacion del personaje con id"+str(id)
+    })
+
 @app.route("/planets", methods=["GET"])
 def planets_sw():
     return jsonify({
         "mensaje": "aca deben estar todos los planetas de sw"
+    })
+
+@app.route("/planets/<int:planet_id>", methods=["GET"])
+def get_planets(id):
+    return jsonify({
+        "mensaje": "esta es la informacion del planeta con id"+str(id)
     })
 
 @app.route("/users", methods=["GET"])
@@ -71,17 +83,8 @@ def users_favorites():
     })
 
 
-@app.route("/people/<int:planet_id>", methods=["GET"])
-def get_people(id):
-    return jsonify({
-        "mensaje": "esta es la informacion del personaje con id"+str(id)
-    })
 
-@app.route("/planets/<int:planet_id>", methods=["GET"])
-def get_planets(id):
-    return jsonify({
-        "mensaje": "esta es la informacion del planeta con id"+str(id)
-    })
+
 
 
 
