@@ -49,7 +49,7 @@ class Planets(db.Model):
 
 class Fav_People(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    people_name = db.Column(db.String(120), db.ForeignKey("people") )
+    people_name = db.Column(db.String(120), db.ForeignKey("people.name") )
     user_fav = db.Column(db.String(120), db.ForeignKey("user.email") )
     rel_people = db.relationship("People")
     rel_user = db.relationship("User")

@@ -9,7 +9,7 @@ from flask_cors import CORS
 from utils import APIException, generate_sitemap
 from admin import setup_admin
 from models import db, User
-#from models import Person
+from models import People 
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -42,12 +42,7 @@ def handle_hello():
     all_users = User.query.all()
     all_users = list(map(lambda user: user.serialize(), all_users))
     return jsonify(all_users), 200
-    
-
-    response_body = {
-        "msg": "Hello, this is your GET /user response "
-    }
-
+   
     return jsonify(response_body), 200
 
 
@@ -62,7 +57,7 @@ def people_sw():
     })
 
 @app.route("/people/<int:people_id>", methods=["GET"])
-def get_people(id):
+def get_people(people_id):
     return jsonify({
         "mensaje": "esta es la informacion del personaje con id"+str(id)
     })
@@ -74,7 +69,7 @@ def planets_sw():
     })
 
 @app.route("/planets/<int:planet_id>", methods=["GET"])
-def get_planets(id):
+def get_planets(planet_id):
     return jsonify({
         "mensaje": "esta es la informacion del planeta con id"+str(id)
     })
