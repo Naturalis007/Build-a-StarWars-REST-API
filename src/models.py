@@ -55,5 +55,13 @@ class Fav_People(db.Model):
     rel_user = db.relationship("User")
 
 
+class Fav_Planets(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    planet_name = db.Column(db.String(120), db.ForeignKey("planet.name") )
+    user_fav = db.Column(db.String(120), db.ForeignKey("user.email") )
+    rel_planet = db.relationship("Planets")
+    rel_user = db.relationship("User")
+
+
 
     
