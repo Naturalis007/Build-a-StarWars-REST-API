@@ -46,6 +46,8 @@ def handle_hello():
     return jsonify(response_body), 200
 
 
+
+
 @app.route("/people", methods=["GET"])
 def get_all_people():
 
@@ -78,15 +80,22 @@ def get_all_users_fav():
     })
 
 
-
-  
-   
-
-@app.route("/people/<int:people_id>", methods=["GET"])
-def get_people(people_id):
+@app.route("/people/<int:id>", methods=["GET"])
+def get_one_people(id):
+    
     return jsonify({
         "mensaje": "esta es la informacion del personaje con id"+str(id)
     })
+
+
+@app.route("/planets/<int:id>", methods=["GET"])
+def get_one_planets(id):
+    
+    return jsonify({
+        "mensaje": "esta es la informacion del planeta con id"+str(id)
+    })
+
+
 
 @app.route("/planets", methods=["GET"])
 def planets_sw():
