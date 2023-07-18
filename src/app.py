@@ -47,14 +47,40 @@ def handle_hello():
 
 
 @app.route("/people", methods=["GET"])
-def people_sw():
+def get_all_people():
 
-    all_people = People.query.all()
-    all_people = list(map(lambda people: people.serialize(), all_people))
-    return jsonify(all_people), 200
-    return jsonify({
+     return jsonify({
         "mensaje": "aca deben estar todos los personajes de sw"
     })
+
+
+@app.route("/planets", methods=["GET"])
+def get_all_planets():
+
+     return jsonify({
+        "mensaje": "aca deben estar todos los planetas de sw"
+    })
+
+
+@app.route("/users", methods=["GET"])
+def get_all_users():
+
+     return jsonify({
+        "mensaje": "aca deben estar todos los usuarios"
+    })
+
+
+@app.route("/users/favorites", methods=["GET"])
+def get_all_users_fav():
+
+     return jsonify({
+        "mensaje": "aca deben estar todos los favoritos de los usuarios"
+    })
+
+
+
+  
+   
 
 @app.route("/people/<int:people_id>", methods=["GET"])
 def get_people(people_id):
